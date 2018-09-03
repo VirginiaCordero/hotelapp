@@ -8,18 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "hotel")
+@Table(name = "hotel_listing" )
 public class Hotel {
 
-	@Id @GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Id 
+	@GeneratedValue(strategy= GenerationType.IDENTITY)	
 	Long id;
-	@Column
+	@Column(name="hotel_name")
 	String name;
+	@Column(name="city")
 	String city;
+	@Column(name="price_per_night")
 	Integer pricePerNight;
 	
-	public Hotel() {
-		
+	public Hotel() {		
 	}
 
 	public Hotel(Long id, String name, String city, Integer pricePerNight) {
@@ -29,7 +31,7 @@ public class Hotel {
 		this.city = city;
 		this.pricePerNight = pricePerNight;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -66,9 +68,5 @@ public class Hotel {
 	public String toString() {
 		return "Hotel [id=" + id + ", name=" + name + ", city=" + city + ", pricePerNight=" + pricePerNight + "]";
 	}
-	
-	
-	
-	
 	
 }
